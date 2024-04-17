@@ -11,7 +11,7 @@ import '/pages/splash_screen.dart';
 import 'package:profile/services/navigator_provider.dart';
 import '/services/secure_storage.dart';
 // Widgets
-import '/widgets/reponsive_widget.dart';
+import '/widgets/responsive/reponsive_widget.dart';
 // Styles
 import '/styles/style_config.dart';
 
@@ -24,15 +24,6 @@ void main() async {
 
   // *** RIVERPOD ***
   // State management with Riverpod (https://codewithandrea.com/articles/flutter-state-management-riverpod/)
-
-  // With Riverpod, providers are the core of everything:
-  // They completely replace design patterns such as singletons, service locators,
-  // dependency injection, and InheritedWidgets.
-  // They allow you to store some state and easily access it in multiple locations.
-  // They allow you to optimize performance by filtering widget rebuilds or caching expensive
-  // state computations.
-  // They make your code more testable, since each provider can be overridden to behave
-  // differently during a test.
 
   // Startup (https://codewithandrea.com/articles/riverpod-initialize-listener-app-startup/)
   // 1. Create a ProviderContainer

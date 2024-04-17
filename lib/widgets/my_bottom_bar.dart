@@ -1,5 +1,6 @@
 // Flutter packages
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MyBottomBar extends StatefulWidget {
   const MyBottomBar({
@@ -19,91 +20,42 @@ class MyBottomBar extends StatefulWidget {
 
 class _MyBottomBarState extends State<MyBottomBar> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  Widget buildItem(int index, IconData iconData, String label) {
-    return Expanded(
-      child: InkWell(
-        onTap: () => widget.onTap(index),
-        radius: 50,
-        child: Ink(
-          child: Container(
-            color: Colors.transparent,
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    width: 60,
-                    height: widget.indexSelected == index ? 5 : 0,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(8),
-                        bottomRight: Radius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 8),
-                      Icon(
-                        iconData,
-                        color: widget.indexSelected == index
-                            ? Theme.of(context).brightness == Brightness.light
-                                ? Theme.of(context).colorScheme.primary
-                                : Colors.white
-                            : Colors.grey,
-                        // size: widget.indexSelected == index ? 26 : 24,
-                      ),
-                      Text(
-                        label,
-                        style: TextStyle(
-                          color: widget.indexSelected == index
-                              ? Theme.of(context).brightness == Brightness.light
-                                  ? Theme.of(context).colorScheme.primary
-                                  : Colors.white
-                              : Colors.grey,
-                          // fontSize: widget.indexSelected == index ? 12 : 14,
-                          fontWeight: widget.indexSelected == index ? FontWeight.bold : null,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: kToolbarHeight,
-      alignment: Alignment.center,
-      child: Card(
-        elevation: Theme.of(context).brightness == Brightness.light ? 10 : 1,
-        margin: EdgeInsets.zero,
-        child: Row(
-          children: [
-            ...List.generate(
-              widget.items.length,
-              (index) => buildItem(
-                widget.items[index].page,
-                widget.items[index].icon,
-                widget.items[index].text,
-              ),
-            ),
-          ],
+    return Card(
+      elevation: Theme.of(context).brightness == Brightness.light ? 10 : 1,
+      margin: EdgeInsets.zero,
+      child: Padding(
+        padding: widget.items.length <= 3
+            ? const EdgeInsets.symmetric(vertical: 10, horizontal: 25)
+            : const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: GNav(
+          selectedIndex: widget.indexSelected,
+          onTabChange: widget.onTap,
+          backgroundColor: Colors.transparent,
+          color: Theme.of(context).brightness == Brightness.light
+              ? Theme.of(context).colorScheme.primary
+              : Colors.white,
+          activeColor: Theme.of(context).brightness == Brightness.light
+              ? Theme.of(context).colorScheme.primary
+              : Colors.white,
+          tabActiveBorder: Border.all(
+            color: Theme.of(context).brightness == Brightness.light
+                ? Theme.of(context).colorScheme.primary
+                : Colors.grey.shade600,
+            width: 1,
+          ),
+          gap: 8,
+          padding: widget.items.length <= 3
+              ? const EdgeInsets.symmetric(vertical: 10, horizontal: 25)
+              : const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          tabs: widget.items
+              .map(
+                (item) => GButton(
+                  icon: item.icon,
+                  text: item.text,
+                ),
+              )
+              .toList(),
         ),
       ),
     );

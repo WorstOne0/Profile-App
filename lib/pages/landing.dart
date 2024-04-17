@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:profile/pages/home.dart';
-import 'package:profile/widgets/my_bottom_bar.dart';
+// Pages
+import '/pages/home.dart';
+// Widgets
+import '/widgets/my_bottom_bar.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});

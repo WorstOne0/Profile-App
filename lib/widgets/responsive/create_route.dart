@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // Widgets
-import '/widgets/reponsive_widget.dart';
+import 'reponsive_widget.dart';
 
 // Create Route and wrap it with responsive widget, for responsivity (obviously)
 MaterialPageRoute createRoute(Widget route, String routeName) {

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:particles_fly/particles_fly.dart';
-import 'package:profile/widgets/flutter_tags.dart';
+// Widgets
+import '/widgets/flutter_tags.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

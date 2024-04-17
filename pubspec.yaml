@@ -43,12 +43,13 @@ dependencies:
   responsive_framework: ^1.1.1
   flutter_secure_storage: ^9.0.0
   animated_theme_switcher: ^2.0.8
-  material_color_utilities: ^0.2.0
+  material_color_utilities: ^0.8.0
   intl: ^0.18.0
   flutter_launcher_icons: ^0.13.1
   google_fonts: ^6.1.0
   flutter_animate: ^4.3.0
   particles_fly: ^0.0.8
+  google_nav_bar: ^5.0.6
 
 dev_dependencies:
   flutter_test:
